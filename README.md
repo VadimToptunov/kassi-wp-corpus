@@ -11,7 +11,7 @@ one rule of [kassi-wp-rules](https://github.com/VadimToptunov/kassi-wp-rules). T
   meta.yml         cve, platform, plugin_slug, version_before/after, file, fix_commit, advisories, pattern
 ```
 
-- Snippets are verbatim excerpts of GPL plugins from the wordpress.org directory, each with an SPDX
+- Snippets are verbatim excerpts (only indentation normalised) of GPL plugins from the wordpress.org directory, each with an SPDX
   header naming its source and CVE. Context is elided, not rewritten.
 - `pattern.fix_added` is what the fix introduced (`current_user_can`, `wp_verify_nonce`, `esc_*`,
   `$wpdb->prepare`, ...). That is the defence the rule has to recognise.
