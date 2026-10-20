@@ -1,0 +1,16 @@
+cve: CVE-2022-0218
+platform: wordpress
+plugin_slug: wp-html-mail
+version_before: 3.0.9
+version_after: "3.1"
+file: includes/class-template-designer.php
+fix_commit: https://plugins.trac.wordpress.org/changeset/2656984/wp-html-mail/trunk/includes/class-template-designer.php
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2022-0218
+  - https://github.com/advisories/GHSA-6434-hpfm-8425
+  - https://www.wordfence.com/blog/2022/01/unauthenticated-xss-vulnerability-patched-in-html-email-template-designer-plugin/
+nvd_cwe: 79   # NVD records the impact (stored XSS); the root cause is CWE-862
+pattern:
+  vulnerable: "POST route with 'permission_callback' => '__return_true'"
+  fix_added: "permission_callback closure returning current_user_can('manage_options')"
+license: GPL-2.0-or-later

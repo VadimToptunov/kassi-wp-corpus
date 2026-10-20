@@ -1,0 +1,15 @@
+cve: CVE-2026-9172
+platform: wordpress
+plugin_slug: devs-accounting
+version_before: 1.2.0
+version_after: 1.2.1
+file: classes/class-devs-accounting-accounts.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/devs-accounting/tags/1.2.0&new_path=/devs-accounting/tags/1.2.1
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9172
+  - https://github.com/advisories/GHSA-3vrh-gvf2-896w
+nvd_cwe: 862
+pattern:
+  vulnerable: "route with no permission_callback key (declared GET, but the callback deletes data)"
+  fix_added: "permission_callback => [$this, 'verify_accounts_nonce']; method changed to DELETE"
+license: GPL-2.0-or-later
