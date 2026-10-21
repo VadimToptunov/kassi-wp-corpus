@@ -1,0 +1,15 @@
+cve: CVE-2022-1006
+platform: wordpress
+plugin_slug: advanced-booking-calendar
+version_before: "1.7.0"
+version_after: "1.7.1"
+file: backend/seasons-calendars.php
+fix_commit: https://plugins.trac.wordpress.org/changeset/2695427
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2022-1006
+  - https://github.com/advisories/GHSA-wr35-3f65-j6mc
+nvd_cwe: 89
+pattern:
+  vulnerable: "$_POST value concatenated into $wpdb->get_row() SQL"
+  fix_added: "intval() on the value"
+license: GPL-2.0-only

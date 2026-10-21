@@ -1,0 +1,17 @@
+cve: CVE-2022-23912
+platform: wordpress
+plugin_slug: ap-custom-testimonial
+version_before: "1.4.7"
+version_after: "1.4.8"
+file: inc/model/apct_current_testimonial.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/ap-custom-testimonial/tags/1.4.7&new_path=/ap-custom-testimonial/tags/1.4.8
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2022-23912
+  - https://github.com/advisories/GHSA-cj7m-j9f8-r77c
+nvd_cwe: 79
+pattern:
+  vulnerable: "echo $_GET['id'] inside an attribute in a template"
+  fix_added: "intval()"
+license: GPL-2.0-or-later
+note: >
+  Same file and fix as WP-005/case-03 (CVE-2022-23911); NVD's fixed version is off by one, see there.

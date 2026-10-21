@@ -1,0 +1,18 @@
+cve: CVE-2026-1296
+platform: wordpress
+plugin_slug: frontend-post-submission-manager-lite
+version_before: "1.2.7"
+version_after: "1.2.8"
+file: includes/classes/class-fpsml-shortcode.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/frontend-post-submission-manager-lite/tags/1.2.7&new_path=/frontend-post-submission-manager-lite/tags/1.2.8
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-1296
+  - https://github.com/advisories/GHSA-cpmc-9298-xjhp
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/92c52129-7cf5-4a1b-80a1-b01140e6a72b
+nvd_cwe: 601
+pattern:
+  vulnerable: "wp_redirect(esc_url($_POST[...]) . '?login=failed') (esc_url does not restrict the host)"
+  fix_added: "wp_safe_redirect()"
+license: GPL-2.0-or-later
+note: >
+  Excerpt is the class method login_failed(), shown without its class (it parses as a plain function). verify_username_password() has the same pattern and fix.

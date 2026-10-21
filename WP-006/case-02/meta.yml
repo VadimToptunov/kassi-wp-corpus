@@ -1,0 +1,17 @@
+cve: CVE-2021-25112
+platform: wordpress
+plugin_slug: whmcs-bridge
+version_before: "6.3"
+version_after: "6.5b"
+file: bridge_cp.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/whmcs-bridge/tags/6.3&new_path=/whmcs-bridge/tags/6.5b
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2021-25112
+  - https://github.com/advisories/GHSA-pv99-qp9p-g563
+nvd_cwe: 79
+pattern:
+  vulnerable: "$_REQUEST value concatenated into echo"
+  fix_added: "wp_kses_post() around the echoed markup"
+license: GPL-3.0-or-later
+note: >
+  Fixed in 6.4b (changeset 2659751), which was never tagged; 6.5b is the first fixed tag.

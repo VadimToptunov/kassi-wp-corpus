@@ -1,0 +1,16 @@
+cve: CVE-2021-42363
+platform: wordpress
+plugin_slug: woo-preview-emails
+version_before: "1.6.8"
+version_after: "2.0.0"
+file: views/form.php
+fix_commit: https://plugins.trac.wordpress.org/changeset/2625941/woo-preview-emails/trunk/views/form.php
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2021-42363
+  - https://github.com/advisories/GHSA-8j4x-5882-263f
+  - https://www.wordfence.com/blog/2021/11/woocommerce-extension-reflected-xss-vulnerability/
+nvd_cwe: 79
+pattern:
+  vulnerable: "echo $_POST[...] inside an attribute and element in a template"
+  fix_added: "esc_attr()"
+license: GPL-2.0-or-later

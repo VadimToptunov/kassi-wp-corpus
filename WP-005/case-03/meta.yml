@@ -1,0 +1,17 @@
+cve: CVE-2022-23911
+platform: wordpress
+plugin_slug: ap-custom-testimonial
+version_before: "1.4.7"
+version_after: "1.4.8"
+file: inc/model/apct_current_testimonial.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/ap-custom-testimonial/tags/1.4.7&new_path=/ap-custom-testimonial/tags/1.4.8
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2022-23911
+  - https://github.com/advisories/GHSA-fcvq-9h68-fmx6
+nvd_cwe: 89
+pattern:
+  vulnerable: "$_GET value concatenated into $wpdb->get_results() SQL in a template"
+  fix_added: "$wpdb->prepare() with %d"
+license: GPL-2.0-or-later
+note: >
+  NVD says fixed 'before 1.4.7', but tag 1.4.7 is still vulnerable; the fix shipped in 1.4.8 (changeset 2664185).

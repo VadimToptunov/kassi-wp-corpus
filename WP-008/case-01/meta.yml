@@ -1,0 +1,15 @@
+cve: CVE-2021-25028
+platform: wordpress
+plugin_slug: event-tickets
+version_before: "5.2.1"
+version_after: "5.2.2"
+file: src/Tribe/Redirections.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/event-tickets/tags/5.2.1&new_path=/event-tickets/tags/5.2.2
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2021-25028
+  - https://github.com/advisories/GHSA-mf96-763w-mh5v
+nvd_cwe: 601
+pattern:
+  vulnerable: "wp_redirect(rawurldecode($_GET[...]))"
+  fix_added: "wp_safe_redirect()"
+license: GPL-2.0-or-later
