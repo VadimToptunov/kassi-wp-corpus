@@ -1,0 +1,18 @@
+cve: CVE-2020-11738
+platform: wordpress
+plugin_slug: duplicator
+version_before: "1.3.26"
+version_after: "1.3.28"
+file: ctrls/class.web.services.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/duplicator/tags/1.3.26&new_path=/duplicator/tags/1.3.28
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2020-11738
+  - https://github.com/advisories/GHSA-wfr8-hp36-c4v2
+  - https://www.wordfence.com/blog/2020/02/active-attack-on-recently-patched-duplicator-plugin-vulnerability-affects-over-1-million-sites/
+nvd_cwe: 22
+pattern:
+  vulnerable: "fopen/readfile(DUPLICATOR_SSDIR_PATH . '/' . sanitize_text_field($_GET['file']))"
+  fix_added: "file name built from the package record (int id + hash check) instead of the request"
+license: GPL-2.0-or-later
+note: >
+  In the CISA Known Exploited Vulnerabilities catalog. 1.3.27 was never tagged; 1.3.28 is the first fixed tag.
