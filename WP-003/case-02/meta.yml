@@ -1,0 +1,16 @@
+cve: CVE-2025-2266
+platform: wordpress
+plugin_slug: checkout-mestres-wp
+version_before: "8.7.5"
+version_after: "8.7.5.1"
+file: backend/core/base/ajax.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/checkout-mestres-wp/tags/8.7.5&new_path=/checkout-mestres-wp/tags/8.7.5.1
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2025-2266
+  - https://github.com/advisories/GHSA-rw7q-vw4w-74r4
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/9834fd5b-8445-4c6f-95f9-f0df785c65f8
+nvd_cwe: 862
+pattern:
+  vulnerable: "handler on wp_ajax_nopriv_ updates arbitrary options from request data"
+  fix_added: "current_user_can('manage_options') at the top of the handler (nopriv registration kept)"
+license: GPL-2.0-or-later

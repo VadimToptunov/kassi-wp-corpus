@@ -1,0 +1,18 @@
+cve: CVE-2023-6966
+platform: wordpress
+plugin_slug: the-moneytizer
+version_before: "9.6.3"
+version_after: "10.0.1"
+file: core/core_ajax.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/the-moneytizer/tags/9.6.3&new_path=/the-moneytizer/tags/10.0.1
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2023-6966
+  - https://github.com/advisories/GHSA-xwvf-75x5-65j6
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/71823e36-3899-4253-a1d2-c6f8921d18dc
+nvd_cwe: 862
+pattern:
+  vulnerable: "wp_ajax_ handler calls update_option() with no capability check"
+  fix_added: "current_user_can('manage_options') (and wp_verify_nonce)"
+license: GPL-2.0-or-later
+note: >
+  Handler and its add_action are shown without the code in between. The same fix also closes CVE-2023-6968 (WP-002/case-02).

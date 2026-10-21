@@ -1,0 +1,18 @@
+cve: CVE-2023-6968
+platform: wordpress
+plugin_slug: the-moneytizer
+version_before: "9.6.3"
+version_after: "10.0.1"
+file: core/core_ajax.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/the-moneytizer/tags/9.6.3&new_path=/the-moneytizer/tags/10.0.1
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2023-6968
+  - https://github.com/advisories/GHSA-h9v8-4xxx-5m3w
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/14351561-bd31-4aaa-931a-e72917458013
+nvd_cwe: 352
+pattern:
+  vulnerable: "wp_ajax_ handler calls update_option() with no nonce check"
+  fix_added: "wp_verify_nonce(..., 'update_language') (and current_user_can)"
+license: GPL-2.0-or-later
+note: >
+  Same excerpt as WP-001/case-01 (CVE-2023-6966): one fix closed both CVEs.

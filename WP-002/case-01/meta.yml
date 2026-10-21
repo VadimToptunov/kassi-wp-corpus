@@ -1,0 +1,18 @@
+cve: CVE-2023-0554
+platform: wordpress
+plugin_slug: quick-restaurant-menu
+version_before: "2.0.2"
+version_after: "2.1.0"
+file: includes/admin/ajax-functions.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/quick-restaurant-menu/tags/2.0.2&new_path=/quick-restaurant-menu/tags/2.1.0
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2023-0554
+  - https://github.com/advisories/GHSA-6hpw-2974-gxxw
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/bfc7c214-8d76-453c-a05d-682aa425b06e
+nvd_cwe: 352
+pattern:
+  vulnerable: "wp_ajax_ handler deletes posts (wp_delete_post) with no nonce check"
+  fix_added: "wp_verify_nonce(..., 'erm_menu_actions') (plus a post-type check)"
+license: GPL-2.0-or-later
+note: >
+  The fixed version still has no current_user_can, so WP-001 still reports it (weak, nonce present); this case backs WP-002 only.

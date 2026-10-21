@@ -1,0 +1,16 @@
+cve: CVE-2021-4362
+platform: wordpress
+plugin_slug: kiwi-social-share
+version_before: "2.1.0"
+version_after: "2.1.1"
+file: includes/lib/helpers/class-kiwi-social-share-helper.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/kiwi-social-share/tags/2.1.0&new_path=/kiwi-social-share/tags/2.1.1
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2021-4362
+  - https://github.com/advisories/GHSA-v95r-22v9-3fc7
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/8148b6d0-190a-4b97-8af7-edd6943116d1
+nvd_cwe: 862
+pattern:
+  vulnerable: "handler on wp_ajax_nopriv_ calls update_option() with request-controlled option name and value"
+  fix_added: "nopriv registrations removed; current_user_can('manage_options') and an option allow-list added"
+license: GPL-3.0-or-later
