@@ -1,0 +1,20 @@
+cve: CVE-2025-6058
+platform: wordpress
+plugin_slug: wpbookit
+version_before: "1.0.4"
+version_after: "1.0.5"
+file: core/admin/classes/controllers/class.wpb-booking-type-controller.php
+lines_before: "447-467"
+lines_after: "447-494"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/wpbookit/tags/1.0.4&new_path=/wpbookit/tags/1.0.5
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2025-6058
+  - https://github.com/advisories/GHSA-3554-wwhq-78h4
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/1d779ad1-fdbe-444c-85c5-99146a1a03d8
+nvd_cwe: 434
+pattern:
+  vulnerable: "move_uploaded_file() of an image upload with no type check"
+  fix_added: "wp_check_filetype() + MIME and extension allow-lists"
+license: GPL-2.0-or-later
+note: >
+  Other move_uploaded_file() calls in other wpbookit 1.0.5 files are still unchecked (e.g. CVE-2025-7852); this case covers only image_upload_handle().

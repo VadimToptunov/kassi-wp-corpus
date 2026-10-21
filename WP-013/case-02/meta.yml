@@ -1,0 +1,18 @@
+cve: CVE-2025-10126
+platform: wordpress
+plugin_slug: mybrain-utilities
+version_before: "1.0.8"
+version_after: "1.1.0"
+file: public/class-mybrain-utilities-public.php
+lines_before: "50-74, 959-972"
+lines_after: "50-74, 959-973"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/mybrain-utilities/tags/1.0.8&new_path=/mybrain-utilities/tags/1.1.0
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2025-10126
+  - https://github.com/advisories/GHSA-qq4f-5x5j-qcxc
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/c722238a-6222-48f8-9b01-bdba56490c83
+nvd_cwe: 79
+pattern:
+  vulnerable: "array($this, 'm') shortcode callback returns $atts values in attributes unescaped"
+  fix_added: "esc_attr() on each attribute"
+license: GPL-3.0-or-later

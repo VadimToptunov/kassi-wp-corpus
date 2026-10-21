@@ -1,0 +1,18 @@
+cve: CVE-2026-2496
+platform: wordpress
+plugin_slug: eds-font-awesome
+version_before: "2.0"
+version_after: "2.1"
+file: eds_font_awesome.php
+lines_before: "81-87, 90-108"
+lines_after: "81-87, 90-106"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/eds-font-awesome/tags/2.0&new_path=/eds-font-awesome/tags/2.1
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-2496
+  - https://github.com/advisories/GHSA-27xg-j8cm-6xf2
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/435e8ca8-cf00-4de9-a454-8cb09b7661ef
+nvd_cwe: 79
+pattern:
+  vulnerable: "shortcode_atts() values concatenated into the returned <i class=...> markup"
+  fix_added: "esc_attr() on each attribute"
+license: GPL-2.0-or-later

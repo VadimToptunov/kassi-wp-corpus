@@ -1,0 +1,20 @@
+cve: CVE-2026-12144
+platform: wordpress
+plugin_slug: woo-wholesale-pricing
+version_before: "2.0.5"
+version_after: "2.0.6"
+file: inc/class-wwp-wholesale-requests.php
+lines_before: "353-428"
+lines_after: "372-462"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/woo-wholesale-pricing/tags/2.0.5&new_path=/woo-wholesale-pricing/tags/2.0.6
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-12144
+  - https://github.com/advisories/GHSA-fgx3-jj2q-3c9j
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/327a155c-7a7d-494d-94d1-f7e7ee8927f0
+nvd_cwe: 269
+pattern:
+  vulnerable: "->add_role($_POST['user_role_set']) (if/else assignment)"
+  fix_added: "in_array() allow-list with fallback re-assignment, plus a capability check"
+license: GPL-2.0-or-later
+note: >
+  The readme says GPLv2 or later; the main plugin header says GPL v3.0. GPL-2.0-or-later is used here.

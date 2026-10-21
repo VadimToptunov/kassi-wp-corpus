@@ -1,0 +1,18 @@
+cve: CVE-2023-7073
+platform: wordpress
+plugin_slug: auto-post-thumbnail
+version_before: "4.1.7"
+version_after: "4.2.0"
+file: includes/class-apt.php
+lines_before: "821-938"
+lines_after: "821-994"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/auto-post-thumbnail/tags/4.1.7&new_path=/auto-post-thumbnail/tags/4.2.0
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2023-7073
+  - https://github.com/advisories/GHSA-c8qj-jvph-xj8w
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/dc024183-0244-4ef9-9171-057ecd1c3e1d
+nvd_cwe: 918
+pattern:
+  vulnerable: "wp_remote_get($_POST['image_url'])"
+  fix_added: "wp_http_validate_url() on the URL (plus HTTPS and private-IP checks)"
+license: GPL-2.0-only

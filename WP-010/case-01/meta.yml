@@ -1,0 +1,18 @@
+cve: CVE-2026-0807
+platform: wordpress
+plugin_slug: frontis-blocks
+version_before: "1.1.6"
+version_after: "1.1.7"
+file: includes/Admin/Admin.php
+lines_before: "926-966"
+lines_after: "933-1004"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/frontis-blocks/tags/1.1.6&new_path=/frontis-blocks/tags/1.1.7
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-0807
+  - https://github.com/advisories/GHSA-9rxx-66q3-qpfv
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/322e0a27-9119-4b46-a043-d3a68c4fcdc4
+nvd_cwe: 918
+pattern:
+  vulnerable: "wp_remote_get(urldecode(sanitize_text_field($_GET['url']))) (unauthenticated proxy)"
+  fix_added: "wp_safe_remote_get(), scheme and host allow-list, capability check"
+license: GPL-2.0-or-later

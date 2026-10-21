@@ -1,0 +1,18 @@
+cve: CVE-2025-6057
+platform: wordpress
+plugin_slug: wpbookit
+version_before: "1.0.4"
+version_after: "1.0.5"
+file: core/admin/classes/controllers/class.wpb-profile-controller.php
+lines_before: "79-99"
+lines_after: "79-134"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/wpbookit/tags/1.0.4&new_path=/wpbookit/tags/1.0.5
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2025-6057
+  - https://github.com/advisories/GHSA-68fc-7cx8-5rmc
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/fac81cc0-c6c9-4009-aacb-52adc70c0261
+nvd_cwe: 434
+pattern:
+  vulnerable: "move_uploaded_file() of a profile image with no type check"
+  fix_added: "wp_check_filetype_and_ext() + wp_handle_upload() instead of move_uploaded_file()"
+license: GPL-2.0-or-later

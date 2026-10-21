@@ -1,0 +1,18 @@
+cve: CVE-2024-12313
+platform: wordpress
+plugin_slug: woocommerce-compare-products
+version_before: "3.2.1"
+version_after: "3.2.2"
+file: classes/class-wc-compare-functions.php
+lines_before: "235-249"
+lines_after: "250-264"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/woocommerce-compare-products/tags/3.2.1&new_path=/woocommerce-compare-products/tags/3.2.2
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-12313
+  - https://github.com/advisories/GHSA-p3wm-hf9c-vv27
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/638e8e67-38b3-4fc4-bd77-8f268030a93a
+nvd_cwe: 502
+pattern:
+  vulnerable: "unserialize($_COOKIE['woo_compare_list']) (unauthenticated)"
+  fix_added: "json_decode()"
+license: GPL-3.0-only

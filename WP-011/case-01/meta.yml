@@ -1,0 +1,18 @@
+cve: CVE-2024-6311
+platform: wordpress
+plugin_slug: funnelforms-free
+version_before: "3.7.3.2"
+version_after: "3.7.4.1"
+file: admin/menu_ajax_functions/formularbuilder_fonts.php
+lines_before: "26-57"
+lines_after: "30-69"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/funnelforms-free/tags/3.7.3.2&new_path=/funnelforms-free/tags/3.7.4.1
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-6311
+  - https://github.com/advisories/GHSA-jg6c-5j96-qf7x
+  - https://www.wordfence.com/threat-intel/vulnerabilities/id/cbd42fc4-ab4a-4053-b765-18272eacd2bc
+nvd_cwe: 434
+pattern:
+  vulnerable: "move_uploaded_file() to a name from $_FILES[...]['name'] with no type check"
+  fix_added: "wp_check_filetype() before the move"
+license: GPL-2.0-only

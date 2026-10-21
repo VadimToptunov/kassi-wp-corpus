@@ -1,0 +1,18 @@
+cve: CVE-2021-39321
+platform: wordpress
+plugin_slug: sassy-social-share
+version_before: "3.3.23"
+version_after: "3.3.24"
+file: admin/class-sassy-social-share-admin.php
+lines_before: "438-454"
+lines_after: "447-467"
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/sassy-social-share/tags/3.3.23&new_path=/sassy-social-share/tags/3.3.24
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2021-39321
+  - https://github.com/advisories/GHSA-pxqp-jhw5-pvjr
+  - https://www.wordfence.com/blog/2021/10/vulnerability-patched-in-sassy-social-share-plugin/
+nvd_cwe: 502
+pattern:
+  vulnerable: "maybe_unserialize(base64_decode(trim($_POST['config'])))"
+  fix_added: "json_decode() (plus capability and nonce checks)"
+license: GPL-2.0-or-later
