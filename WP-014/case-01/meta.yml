@@ -1,0 +1,23 @@
+cve: CVE-2026-49286
+platform: wordpress
+synthetic: true
+plugin_slug: kassi-pop-phar-demo
+version_before: "1.0.0"
+version_after: "1.0.1"
+file: kassi-pop-phar-demo.php
+lines_before: "5-11"
+lines_after: "5-12"
+fix_commit: https://github.com/pontedilana/php-weasyprint/commit/d1aa487722b5a3cab9b222b85fdb5608a5a550c3
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-49286
+  - https://advisories.gitlab.com/composer/pontedilana/php-weasyprint/CVE-2026-49286/
+nvd_cwe: 502
+pattern:
+  vulnerable: "getimagesize($_GET['tpl']) on a request-derived path + file-deleting __destruct gadget"
+  fix_added: "basename() into a fixed directory breaks the phar:// path"
+note: >
+  Synthetic WordPress illustration of the PhpWeasyPrint PHAR-deserialization shape (CVE-2026-49286,
+  CWE-502): a request-derived path reaching a file operation that can carry a phar:// wrapper, paired
+  with a POP gadget in the same plugin. The real CVE is in a Composer package, so there is no
+  wordpress.org release to fetch for the recall run (synthetic: true).
+license: GPL-2.0-or-later

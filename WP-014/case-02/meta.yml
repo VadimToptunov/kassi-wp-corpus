@@ -1,0 +1,23 @@
+cve: CVE-2026-55220
+platform: wordpress
+synthetic: true
+plugin_slug: kassi-pop-unserialize-demo
+version_before: "1.0.0"
+version_after: "1.0.1"
+file: kassi-pop-unserialize-demo.php
+lines_before: "5-9"
+lines_after: "5-9"
+fix_commit: https://github.com/pimcore/pimcore/pull/19181
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-55220
+  - https://advisories.gitlab.com/composer/pimcore/pimcore/CVE-2026-55220/
+nvd_cwe: 502
+pattern:
+  vulnerable: "unserialize(base64_decode($_POST['blob'])) + __wakeup running $wpdb->query"
+  fix_added: "unserialize(..., ['allowed_classes' => false])"
+note: >
+  Synthetic WordPress illustration of the Pimcore getDataFromResource() unrestricted-unserialize shape
+  (CVE-2026-55220, CWE-502): request input reaching unserialize() without allowed_classes, paired with
+  a SQL-executing POP gadget. The real CVE is in a Composer package, so there is no wordpress.org
+  release to fetch for the recall run (synthetic: true).
+license: GPL-2.0-or-later
