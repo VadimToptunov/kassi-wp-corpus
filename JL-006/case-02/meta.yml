@@ -1,0 +1,20 @@
+cve: CVE-2026-63264
+platform: joomla
+synthetic: true
+plugin_slug: joomshopping
+version_before: "5.9.2"
+version_after: "5.9.3"
+file: synthetic/site/controllers/product.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-63264
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-63264
+nvd_cwe: 79
+pattern:
+  vulnerable: "request keyword reflected by the product frontend controller without escaping"
+  fix_added: "$view->escape() (htmlspecialchars wrapper)"
+license: GPL-2.0-or-later
+note: >
+  Synthetic. NVD describes CVE-2026-63264 as a reflected XSS (CWE-79) in the JoomShopping product
+  frontend controller, reached through a crafted URL; the exact parameter and affected range detail are
+  not fully published, so a representative keyword reflection is used. Replace with a verbatim excerpt +
+  the real parameter if the vulnerable release is obtained.

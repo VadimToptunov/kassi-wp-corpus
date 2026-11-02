@@ -1,0 +1,19 @@
+cve: CVE-2026-60027
+platform: joomla
+synthetic: true
+plugin_slug: quix
+version_before: "6.2.0"
+version_after: "6.2.1"
+file: synthetic/models/template.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-60027
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60027
+nvd_cwe: 22
+pattern:
+  vulnerable: "request template name concatenated into file_get_contents() path -> arbitrary file read"
+  fix_added: "basename() (strip directory parts)"
+license: GPL-2.0-or-later
+note: >
+  Synthetic. The advisory reports an unauthenticated arbitrary file read in Quix Page Builder Pro
+  < 6.2.1; the exact parameter/path is not public (vendor-hosted, ThemeXpert), so a representative
+  template-read traversal is used. Replace with a verbatim excerpt if the vulnerable release is obtained.

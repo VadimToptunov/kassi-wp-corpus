@@ -1,0 +1,21 @@
+cve: CVE-2026-65762
+platform: joomla
+synthetic: true
+plugin_slug: phoca-guestbook
+version_before: "6.1.0"
+version_after: "6.1.1"
+file: synthetic/views/list/view.html.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-65762
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65762
+  - https://dbugs.ptsecurity.com/vulnerability/PT-2026-64039
+nvd_cwe: 79
+pattern:
+  vulnerable: "front-end search term reflected into the page without escaping (reflected XSS)"
+  fix_added: "htmlspecialchars(..., ENT_QUOTES)"
+license: GPL-2.0-or-later
+note: >
+  Synthetic. NVD confirms an unauthenticated reflected XSS (CWE-79) in Phoca Guestbook <= 6.1.0 via
+  improper input validation in the front-end guestbook, but the exact parameter is not published, so a
+  representative search-term reflection is used. Phoca Guestbook is vendor-hosted (phoca.cz), no public
+  release/diff to excerpt verbatim. Replace with a verbatim excerpt + the real parameter if obtained.

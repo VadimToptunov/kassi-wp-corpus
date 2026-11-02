@@ -1,0 +1,20 @@
+cve: CVE-2026-67285
+platform: joomla
+synthetic: true
+plugin_slug: sppagebuilder
+version_before: "6.7.0"
+version_after: "6.8.0"
+file: synthetic/helpers/render.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-67285
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67285
+nvd_cwe: 22
+pattern:
+  vulnerable: "request addon/layout name concatenated into a require path -> LFI -> code execution"
+  fix_added: "getCmd() + basename() (strip directory separators)"
+license: GPL-2.0-or-later
+note: >
+  Synthetic. The advisory states an unauthenticated local file inclusion leading to code execution in
+  SP Page Builder < 6.8.0; the exact parameter/path is not public (vendor-hosted, JoomShaper), so a
+  representative addon-include traversal is used. Replace with a verbatim excerpt if the vulnerable
+  release is obtained.

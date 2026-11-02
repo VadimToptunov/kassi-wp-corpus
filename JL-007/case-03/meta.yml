@@ -1,0 +1,20 @@
+cve: CVE-2026-102424
+platform: joomla
+synthetic: true
+plugin_slug: balbooa-forms
+version_before: "2.4.3.3"
+version_after: "2.4.3.4"
+file: synthetic/site/controllers/submit.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-102424
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102424
+nvd_cwe: 22
+pattern:
+  vulnerable: "guest-controlled upload-state filename read via readfile() during public form submission"
+  fix_added: "basename() + JPath::clean()"
+license: GPL-2.0-or-later
+note: >
+  Synthetic. The advisory reports that Balbooa Forms < 2.4.3.4 accepts upload-field state as
+  guest-controlled JSON during public form submission and reads local files; the exact field/path is
+  not public (vendor-hosted, Balbooa), so a representative readfile() traversal is used. Replace with a
+  verbatim excerpt if the vulnerable release is obtained.
