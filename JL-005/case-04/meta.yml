@@ -1,0 +1,21 @@
+cve: CVE-2026-65766
+platform: joomla
+synthetic: true
+plugin_slug: sp-page-builder
+version_before: "6.7.0"
+version_after: "6.7.1"
+file: synthetic/SppagebuilderModelDynamic.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-65766
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65766
+  - https://fieldguide.lutrasecurity.com/CVE-2026-65766/
+nvd_cwe: 89
+pattern:
+  vulnerable: "Dynamic Content `order` request param placed unvalidated into an ORDER BY clause"
+  fix_added: "allow-list map: the ORDER BY only ever contains a constant"
+license: GPL-2.0-or-later
+note: >
+  Synthetic but faithful: the advisory names the Dynamic Content endpoint and the `order` parameter
+  going into ORDER BY. SP Page Builder is vendor-hosted (JoomShaper), so no public release/diff to
+  excerpt verbatim (synthetic: true). ORDER BY columns cannot be quoted, so the fixed case uses the
+  realistic allow-list remediation rather than $db->quote().

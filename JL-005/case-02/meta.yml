@@ -1,0 +1,22 @@
+cve: CVE-2026-49048
+platform: joomla
+synthetic: true
+plugin_slug: joomcck
+version_before: "6.4.0"
+version_after: "6.4.1"
+file: synthetic/JcckStoreModel.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-49048
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-49048
+  - https://fieldguide.lutrasecurity.com/CVE-2026-49048/
+nvd_cwe: 89
+pattern:
+  vulnerable: "request value via $input->getString() concatenated into $db->setQuery() (STRING filter does not escape quotes)"
+  fix_added: "$db->quote() around the value"
+license: GPL-2.0-or-later
+note: >
+  Synthetic but faithful: the public advisory states the cause exactly — a front-end controller task
+  concatenates a getString() request parameter into the SQL, and Joomla's STRING filter does not escape
+  single quotes. JoomCCK is vendor-hosted (JoomCoder), so there is no public release/diff to excerpt
+  verbatim; this case reproduces the verified pattern (synthetic: true). Upgrade to a verbatim excerpt
+  if the vulnerable release is ever obtained.

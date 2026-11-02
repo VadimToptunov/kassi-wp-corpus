@@ -1,0 +1,21 @@
+cve: CVE-2026-57832
+platform: joomla
+synthetic: true
+plugin_slug: edocman
+version_before: "3.8"
+version_after: "3.9"
+file: synthetic/EDocmanModelDocuments.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-57832
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-57832
+  - https://dbugs.ptsecurity.com/vulnerability/PT-2026-58890
+nvd_cwe: 89
+pattern:
+  vulnerable: "request filter value concatenated into $db->setQuery() in the document listing (blind SQLi)"
+  fix_added: "$input->getInt() integer cast"
+license: GPL-2.0-or-later
+note: >
+  Synthetic, and the LEAST specific of the four: the advisory confirms unauthenticated blind SQLi in
+  EDocman < 3.9 but does not publish the exact parameter, so a representative category filter is used.
+  EDocman is vendor-hosted (JoomDonation), no public release/diff to excerpt verbatim (synthetic: true).
+  Replace with a verbatim excerpt + the real parameter if the vulnerable release is obtained.

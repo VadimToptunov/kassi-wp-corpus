@@ -1,0 +1,20 @@
+cve: CVE-2026-74804
+platform: joomla
+synthetic: true
+plugin_slug: zoo
+version_before: "4.1.63"
+version_after: "4.1.64"
+file: synthetic/ItemController.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-74804
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74804
+  - https://fieldguide.lutrasecurity.com/CVE-2026-74804/
+nvd_cwe: 89
+pattern:
+  vulnerable: "filter_type / type_filter request param reaches $db->setQuery() unsanitized in ItemController::element()"
+  fix_added: "$db->quote() around the value"
+license: GPL-2.0-or-later
+note: >
+  Synthetic but faithful: the advisory names the sink (ItemController::element) and the parameters
+  (filter_type / type_filter). YOOtheme Zoo is vendor-hosted, so no public release/diff to excerpt
+  verbatim; this reproduces the verified pattern via the bare $input->get() form (synthetic: true).
