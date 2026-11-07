@@ -1,0 +1,23 @@
+cve: CVE-2026-3300
+platform: wordpress
+synthetic: true
+plugin_slug: everest-forms-pro
+version_before: "1.9.12"
+version_after: "1.9.13"
+file: synthetic/addons/calculation/process-filter.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2026-3300
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-3300
+  - https://everestforms.net/changelog/
+nvd_cwe: 94
+pattern:
+  vulnerable: "eval('$result = ' . $_POST['...'] . ';') — a form field value concatenated into evaluated PHP"
+  fix_added: "evaluate with a safe arithmetic parser instead of eval()"
+license: GPL-2.0-or-later
+note: >
+  Synthetic. NVD confirms an unauthenticated PHP code injection / RCE (CWE-94, CVSS 3.1 9.8) in Everest
+  Forms Pro <= 1.9.12: the Calculation Addon's process_filter() concatenates user-submitted form field
+  values into a PHP code string without escaping before passing it to eval(). The exact vulnerable source
+  is not quoted verbatim in the public advisory, so a representative reconstruction using a submitted form
+  value and eval() is used. version_after is indicative (the advisory links the vendor changelog, not a
+  pinned fixed release). Replace with a verbatim excerpt if the diff is obtained.
