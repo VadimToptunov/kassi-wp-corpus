@@ -1,0 +1,23 @@
+cve: CVE-2018-15877
+platform: wordpress
+synthetic: true
+plugin_slug: plainview-activity-monitor
+version_before: "20161228"
+version_after: "20180826"
+file: synthetic/plainview_activity_monitor.php
+fix_commit: https://nvd.nist.gov/vuln/detail/CVE-2018-15877
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2018-15877
+  - https://www.exploit-db.com/exploits/45274
+nvd_cwe: 78
+pattern:
+  vulnerable: "shell_exec('host ' . $_POST['ip']) — the ip request parameter reaches an OS command"
+  fix_added: "escapeshellarg() around the request value (20180826)"
+license: GPL-2.0-or-later
+note: >
+  Synthetic. NVD confirms an authenticated OS command injection (CWE-78, CVSS 3.1 8.8) in Plainview
+  Activity Monitor before 20180826 via shell metacharacters in the `ip` parameter of a
+  wp-admin/admin.php?page=plainview_activity_monitor&tab=activity_tools request (version 20161228 is a
+  documented vulnerable release, Exploit-DB 45274). The exact vulnerable source line is not quoted in the
+  public advisory, so a representative reconstruction using the documented `ip` parameter and a shell call
+  is used. Replace with a verbatim excerpt if the diff is obtained.
