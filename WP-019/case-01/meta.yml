@@ -1,0 +1,15 @@
+cve: CVE-2026-1929
+platform: wordpress
+plugin_slug: advanced-woo-labels
+version_before: "2.36"
+version_after: "2.37"
+file: includes/admin/class-awl-admin-ajax.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/advanced-woo-labels/tags/2.36&new_path=/advanced-woo-labels/tags/2.37
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-1929
+  - https://db.gcve.eu/vuln/ghsa-jv27-w2xj-6cq3
+nvd_cwe: 94
+pattern:
+  vulnerable: "$callback = sanitize_text_field($_POST['callback']); ... call_user_func_array($callback, $callback_params)"
+  fix_added: "current_user_can('manage_options') + an allow-list of known callbacks (real fix iterates the plugin's option rules; reduced to in_array here) before call_user_func_array()"
+license: GPL-2.0-or-later
