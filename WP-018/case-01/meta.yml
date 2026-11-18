@@ -1,0 +1,15 @@
+cve: CVE-2026-2811
+platform: wordpress
+plugin_slug: wp-ajaxify-comments
+version_before: "3.1.2"
+version_after: "3.2.0"
+file: functions.php
+fix_commit: https://plugins.trac.wordpress.org/changeset?old_path=/wp-ajaxify-comments/tags/3.1.2&new_path=/wp-ajaxify-comments/tags/3.2.0
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-2811
+  - https://wpscan.com/vulnerability/48250628-9b81-4bef-b623-356ceca01215/
+nvd_cwe: 113
+pattern:
+  vulnerable: "header( 'X-WPAC-UNAPPROVED: ' . $_GET['WPACUnapproved'] )"
+  fix_added: "sanitize_text_field( wp_unslash( ... ) ) (strips CR/LF) plus a strict 0/1 value check before header()"
+license: GPL-2.0-or-later
