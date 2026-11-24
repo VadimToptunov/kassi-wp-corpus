@@ -1,0 +1,20 @@
+cve: CVE-2024-11199
+platform: wordpress
+plugin_slug: pending-validation
+version_before: "1.0.0"
+version_after: "1.0.1"
+file: pending/validation.php
+fix_commit: https://plugins.trac.wordpress.org/changeset/pending-validation
+advisories:
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-11199
+nvd_cwe: 79
+pattern:
+  vulnerable: "request input written to update_option(), read back by get_option() on an admin page and echoed without esc_* / wp_kses"
+  fix_added: "wrap the admin echo in wp_kses_post() / esc_html() / esc_attr() depending on output context"
+license: GPL-2.0-or-later
+notes:
+  - WP-020 is plugin-wide (writer and reader almost always live in different files). The IDE
+    per-file inspection stays a no-op; recall and precision are measured in the bounty-pipeline
+    integration tests (StoredXssPairTest and the 13k corpus run), not in the CorpusAcceptanceTest.
+  - The vulnerable.php / fixed.php pair below documents the canonical shape for future hand-port
+    work; they are never executed by the IDE test harness.
